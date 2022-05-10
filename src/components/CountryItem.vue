@@ -35,11 +35,4 @@ export default {
 li {
   background: var(--primary-background);
 }
-
-@media (min-width: 640px) {
-  h3 {
-    color: red;
-  }
-}
-
 </style>

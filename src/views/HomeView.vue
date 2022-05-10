@@ -86,13 +86,13 @@ export default {
 
 <template>
   <div class="p-4">
-    <section class="filter-section flex flex-wrap">
-      <div class="search-content min-w-full mb-4 flex items-center justify-around p-3 rounded-md shadow-md">
+    <section class="filter-section flex flex-wrap justify-between items-center">
+      <div class="search-content min-w-full sm:min-w-0 sm:max-w-2xl sm:w-2/6 mb-4 sm:mb-0 flex items-center justify-around p-3 rounded-md shadow-md">
         <img :src="magnifyingGlassSolid" alt="" class="h-4 mx-3">
         <input ref="inputFilterByName" @keyup="isTyping" class="grow p-2" type="text" placeholder="Search for a country...">
       </div>
-      <div class="filter-regions-content p-3 rounded-md shadow-md">
-        <select name="regions" id="regions" @input="this.applyFilter">
+      <div class="filter-regions-content p-3 rounded-md shadow-md flex items-center">
+        <select class="cursor-pointer" name="regions" id="regions" @input="this.applyFilter">
           <option :key="region" :value="region" v-for="region in regions">{{ region }}</option>
         </select>
       </div>
