@@ -2,6 +2,8 @@
 import magnifyingGlassSolid from '../assets/icons/magnifying-glass-solid.svg';
 import allCountries from './countries';
 
+import CountriesList from '../components/CountriesList.vue';
+
 let timerStopTyping;
 
 function removeDiacritics(text) {
@@ -9,6 +11,9 @@ function removeDiacritics(text) {
 }
 
 export default {
+  components: {
+    CountriesList,
+  },
   data() {
     return {
       magnifyingGlassSolid,
@@ -80,8 +85,8 @@ export default {
 </script>
 
 <template>
-  <div>
-    <section class="filter-section flex flex-wrap p-4">
+  <div class="p-4">
+    <section class="filter-section flex flex-wrap">
       <div class="search-content min-w-full mb-4 flex items-center justify-around p-3 rounded-md shadow-md">
         <img :src="magnifyingGlassSolid" alt="" class="h-4 mx-3">
         <input ref="inputFilterByName" @keyup="isTyping" class="grow p-2" type="text" placeholder="Search for a country...">
@@ -93,12 +98,7 @@ export default {
       </div>
     </section>
 
-    <section class="countries-content">
-      {{ filterByRegion }} cant: {{ countriesFiltered.length }}
-      <ul>
-        <li :key="country" v-for="country in countriesFiltered">{{ country.name.common }}</li>
-      </ul>
-    </section>
+    <CountriesList :countries="countriesFiltered"/>
   </div>
 </template>
 
@@ -106,10 +106,4 @@ export default {
 .search-content, .filter-regions-content, .filter-regions-content select {
   background: var(--secondary-background);
 }
-/* main {
-  background: #000;
-}
-img {
-  filter: invert(90%);
-} */
 </style>
