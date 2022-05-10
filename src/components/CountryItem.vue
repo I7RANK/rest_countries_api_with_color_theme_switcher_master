@@ -6,7 +6,7 @@
     <div class="p-6">
       <h3 class="text-xl font-bold mb-2">{{ country.name.common }}</h3>
       <p>
-        <span class="font-semibold">Population: </span>{{ country.population }}
+        <span class="font-semibold">Population: </span>{{ country.population.toLocaleString() }}
       </p>
       <p>
         <span class="font-semibold">Region: </span>{{ country.region }}

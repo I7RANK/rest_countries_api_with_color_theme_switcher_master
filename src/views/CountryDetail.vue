@@ -98,7 +98,7 @@ export default {
             </p>
             <p>
               <span class="font-semibold">Population: </span>
-              {{ country.population }}
+              {{ country.population.toLocaleString() }}
             </p>
             <p>
               <span class="font-semibold">Region: </span>
