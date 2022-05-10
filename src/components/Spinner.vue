@@ -9,7 +9,7 @@ export default {};
 <style>
 /* source: https://projects.lukehaas.me/css-loaders/ */
 .loader {
-  color: #000;
+  color: var(--text-color);
   font-size: 26px;
   text-indent: -9999em;
   overflow: hidden;

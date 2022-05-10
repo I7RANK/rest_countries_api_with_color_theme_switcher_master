@@ -78,7 +78,7 @@ export default {
           flex items-center
           px-4 py-1 shadow-md rounded-md
           active:shadow-sm">
-          <img class="w-4 mr-4" :src="arrowLeftSolid" alt="">
+          <img class="icon-back-arrow w-4 mr-4" :src="arrowLeftSolid" alt="">
           Back
         </button>
       </RouterLink>
@@ -149,5 +149,11 @@ export default {
 <style>
 .btn-back {
   background: var(--secondary-background);
+}
+
+@media (prefers-color-scheme: dark) {
+  .icon-back-arrow {
+    filter: invert(90%);
+  }
 }
 </style>

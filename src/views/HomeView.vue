@@ -115,4 +115,14 @@ export default {
 .search-content, .filter-regions-content, .filter-regions-content select {
   background: var(--secondary-background);
 }
+
+input {
+  background: var(--secondary-background);
+}
+
+@media (prefers-color-scheme: dark) {
+  .search-content img {
+    filter: invert(90%);
+  }
+}
 </style>
