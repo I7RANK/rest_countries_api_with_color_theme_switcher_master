@@ -1,29 +1,48 @@
-# .
+# Frontend Mentor - REST Countries API with color theme switcher solution
 
-This template should help get you started developing with Vue 3 in Vite.
+This is a solution to the [REST Countries API with color theme switcher challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
 
-## Recommended IDE Setup
+## Table of contents
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.vscode-typescript-vue-plugin).
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+  - [Built with](#built-with)
+- [Author](#author)
 
-## Customize configuration
+## Overview
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+### The challenge
 
-## Project Setup
+Users should be able to:
 
-```sh
-npm install
-```
+- See all countries from the API on the homepage
+- Search for a country using an `input` field
+- Filter countries by region
+- Click on a country to see more detailed information on a separate page
+- Click through to the border countries on the detail page
+- Toggle the color scheme between light and dark mode *(optional)*
 
-### Compile and Hot-Reload for Development
+### Screenshot
 
-```sh
-npm run dev
-```
+![desktop-preview](https://user-images.githubusercontent.com/65993425/167716343-ff42edc9-3726-45fb-8bb3-d77508bb8d35.jpg)
 
-### Compile and Minify for Production
+### Links
 
-```sh
-npm run build
-```
+- Live site: [here](https://i7rank.github.io/rest_countries_api_with_color_theme_switcher_master)
+
+### Built with
+
+- Vue
+- Tailwind
+- Mobile-first workflow
+- Semantic HTML5 markup
+- CSS custom properties
+- Flexbox
+- CSS Grid
+
+## Author
+
+- Frontend Mentor - [@I7RANK](https://www.frontendmentor.io/profile/I7RANK)
+- Twitter - [@I7RANKI](https://twitter.com/I7RANKI)
