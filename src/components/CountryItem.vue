@@ -1,6 +1,8 @@
 <template>
   <li class="rounded-md shadow-md my-10 sm:mx-8 sm:max-w-xs">
-    <img class="rounded-t-md max-w-full" :src="uy" alt="Country flag">
+    <RouterLink :to="`/${country.cca3}`">
+      <img class="rounded-t-md max-w-full cursor-pointer" :src="this.country.flags ? this.country.flags.svg : ''" alt="Country flag">
+    </RouterLink>
     <div class="p-6">
       <h3 class="text-xl font-bold mb-2">{{ country.name.common }}</h3>
       <p>
@@ -17,6 +19,8 @@
 </template>
 
 <script>
+import { RouterLink } from "vue-router";
+
 import uy from './uy.svg';
 
 export default {
