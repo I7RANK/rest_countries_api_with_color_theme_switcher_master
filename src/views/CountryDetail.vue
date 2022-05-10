@@ -91,55 +91,58 @@ export default {
       </RouterLink>
     </div>
 
-    <section class="p-6">
+    <section class="p-6 lg:grid lg:grid-cols-2 lg:gap-x-24">
       <img class="" :src="countryFlag" alt="">
 
       <div>
-        <h3 class="text-xl font-bold mb-2 mt-8">{{ countryName }}</h3>
-        <div class="mt-4">
-          <p>
-            <span class="font-semibold">Native Name: </span>
-            {{ countryNativeName }}
-          </p>
-          <p>
-            <span class="font-semibold">Population: </span>
-            {{ country.population }}
-          </p>
-          <p>
-            <span class="font-semibold">Region: </span>
-            {{ country.region }}
-          </p>
-          <p>
-            <span class="font-semibold">Sub Region: </span>
-            {{ country.subregion }}
-          </p>
-          <p>
-            <span class="font-semibold">Capital: </span>
-            {{ country.capital ? country.capital[0] : '' }}
-          </p>
+        <h3 class="text-xl font-bold mb-2 mt-8 lg:text-2xl">{{ countryName }}</h3>
+
+        <div class="lg:flex lg:justify-between lg:max-w-xl">
+          <div class="mt-4 lg:m-0">
+            <p>
+              <span class="font-semibold">Native Name: </span>
+              {{ countryNativeName }}
+            </p>
+            <p>
+              <span class="font-semibold">Population: </span>
+              {{ country.population }}
+            </p>
+            <p>
+              <span class="font-semibold">Region: </span>
+              {{ country.region }}
+            </p>
+            <p>
+              <span class="font-semibold">Sub Region: </span>
+              {{ country.subregion }}
+            </p>
+            <p>
+              <span class="font-semibold">Capital: </span>
+              {{ country.capital ? country.capital[0] : '' }}
+            </p>
+          </div>
+
+          <div class="mt-8 lg:m-0">
+            <p>
+              <span class="font-semibold">Top Level Domain: </span>
+              {{ countryTLD }}
+            </p>
+            <p>
+              <span class="font-semibold">Currencies: </span>
+              {{ countryCurrencies }}
+            </p>
+            <p>
+              <span class="font-semibold">Languages: </span>
+              {{ countryLanguages }}
+            </p>
+          </div>
         </div>
 
-        <div class="mt-8">
-          <p>
-            <span class="font-semibold">Top Level Domain: </span>
-            {{ countryTLD }}
-          </p>
-          <p>
-            <span class="font-semibold">Currencies: </span>
-            {{ countryCurrencies }}
-          </p>
-          <p>
-            <span class="font-semibold">Languages: </span>
-            {{ countryLanguages }}
-          </p>
-        </div>
-
-        <div class="mt-8">
-          <span class="font-semibold">Border Countries: </span>
-          <div class="flex justify-start flex-wrap mt-4">
+        <div class="mt-8 lg:flex lg:items-start lg:flex-wrap">
+          <span class="font-semibold lg:mr-2 lg:mb-4">Border Countries: </span>
+          <div class="flex justify-start flex-wrap mt-4 lg:m-0">
             <RouterLink :to="`/${countryBorder}`" :key="countryBorder"
                 v-for="countryBorder in countryBorders" @click="this.getCountryByCode(countryBorder)">
-              <button class="px-2 mx-1 my-2 rounded-md shadow-md">
+              <button class="px-2 mx-1 mb-4 rounded-md shadow-md">
                 {{ countryBorder }}
               </button>
             </RouterLink>
