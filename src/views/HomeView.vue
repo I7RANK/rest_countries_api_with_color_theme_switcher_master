@@ -33,7 +33,6 @@ export default {
       this.getCountriesByRegion(this.filterByRegion);
     },
     filterByName(newValue) {
-      console.log(newValue);
       this.countriesFiltered = this.countries.filter(country => {
         let name = removeDiacritics(country.name.common).toLowerCase();
 
@@ -78,8 +77,7 @@ export default {
     },
   },
   mounted() {
-    // this.getAllCountries();
-    this.countries = allCountries;
+    this.getAllCountries();
   }
 };
 </script>

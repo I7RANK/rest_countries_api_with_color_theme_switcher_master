@@ -12,7 +12,6 @@ export default {
   },
   computed: {
     countryFlag() {
-      console.log(this.country);
       return this.country.flags ? this.country.flags.svg : '';
     },
     countryName() {
@@ -49,8 +48,6 @@ export default {
       try {
         const res = await fetch(url);
         this.country = (await res.json())[0];
-        console.log(res.status);
-        console.log(this.country);
       } catch (error) {
         console.log('Error! Could not reach the API. ' + error);
       }
@@ -58,13 +55,9 @@ export default {
     async getCountryByCode(code) {
       const url = `https://restcountries.com/v3.1/alpha/${code}`;
 
-      console.log(code);
-
       try {
         const res = await fetch(url);
         this.country = (await res.json())[0];
-        console.log(res.status);
-        console.log(this.country);
       } catch (error) {
         console.log('Error! Could not reach the API. ' + error);
       }
