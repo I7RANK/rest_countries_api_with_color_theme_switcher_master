@@ -16,7 +16,6 @@ export default {
 
 <template>
   <section class="countries-content">
-    cant: {{ this.countries.length }}
     <ul class="flex flex-wrap justify-around">
       <CountryItem
         :key="country.name.common"

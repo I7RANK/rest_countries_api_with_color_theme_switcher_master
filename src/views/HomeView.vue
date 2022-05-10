@@ -2,6 +2,7 @@
 import magnifyingGlassSolid from '../assets/icons/magnifying-glass-solid.svg';
 import allCountries from './countries';
 
+import Spinner from '../components/Spinner.vue';
 import CountriesList from '../components/CountriesList.vue';
 
 let timerStopTyping;
@@ -13,6 +14,7 @@ function removeDiacritics(text) {
 export default {
   components: {
     CountriesList,
+    Spinner
   },
   data() {
     return {
@@ -22,6 +24,7 @@ export default {
       regions: ['all', 'Africa', 'Americas', 'Asia', 'Europe', 'Oceania'],
       countries: [],
       countriesFiltered: [],
+      requestStatusCode: 0
     };
   },
   watch: {
@@ -38,6 +41,7 @@ export default {
 
         if (name.includes(newValue.toLowerCase())) return country;
       });
+      this.requestStatusCode = 200;
     },
     countries(newValue) {
       this.$refs.inputFilterByName.value = '';
@@ -47,20 +51,24 @@ export default {
   methods: {
     async getAllCountries() {
       const url = 'https://restcountries.com/v3.1/all';
+      this.requestStatusCode = 0;
 
       try {
         const res = await fetch(url);
         this.countries = (await res.json());
+        this.requestStatusCode = res.status;
       } catch (error) {
         console.log('Error! Could not reach the API. ' + error);
       }
     },
     async getCountriesByRegion(region) {
       const url = `https://restcountries.com/v3.1/region/${region}`;
+      this.requestStatusCode = 0;
 
       try {
         const res = await fetch(url);
         this.countries = (await res.json());
+        this.requestStatusCode = res.status;
       } catch (error) {
         console.log('Error! Could not reach the API. ' + error);
       }
@@ -69,6 +77,7 @@ export default {
       this.filterByRegion = e.target.value;
     },
     isTyping(e) {
+      this.requestStatusCode = 0;
       clearTimeout(timerStopTyping);
 
       timerStopTyping = setTimeout(() => {
@@ -89,6 +98,7 @@ export default {
         <img :src="magnifyingGlassSolid" alt="" class="h-4 mx-3">
         <input ref="inputFilterByName" @keyup="isTyping" class="grow p-2" type="text" placeholder="Search for a country...">
       </div>
+
       <div class="filter-regions-content p-3 rounded-md shadow-md flex items-center">
         <select class="cursor-pointer" name="regions" id="regions" @input="this.applyFilter">
           <option :key="region" :value="region" v-for="region in regions">{{ region }}</option>
@@ -96,7 +106,8 @@ export default {
       </div>
     </section>
 
-    <CountriesList :countries="countriesFiltered"/>
+    <Spinner v-if="!requestStatusCode" />
+    <CountriesList v-else :countries="countriesFiltered"/>
   </div>
 </template>
 
